@@ -1,0 +1,35 @@
+header.bg-primary {
+  background-color: #007bff; /* Bootstrap primary color */
+  color: #fff;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+header .container {
+  text-align: center;
+}
+
+header h1.m-0 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+table{
+  padding-top: 30px;
+}
+table,td,th,tr{
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    color: #212529;
+    background-color: #fff;
+    border: 1px solid #0c0d0e;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    table-layout: fixed;
+    word-wrap: break-word;
+    padding: 20px;
+    text-align: center;
+}

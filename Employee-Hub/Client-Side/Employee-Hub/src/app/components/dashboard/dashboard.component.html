@@ -1,0 +1,30 @@
+<header class="bg-primary text-white py-3 mb-4">
+    <div class="container text-center">
+        <h1 class="m-0">Employee Management Dashboard</h1>
+    </div>
+</header>
+<div class="table">
+<table class="table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let employee of employees">
+        <tr>
+            <td>{{employee.id}}</td>
+            <td>{{employee.name | titlecase}}</td>
+            <td>{{employee.email}}</td>
+            <td>{{employee.password | maskPassword}}</td>
+            <td> 
+                <button (click)="deleteEmployee(employee.id)" class="btn btn-danger" href="">Delete</button>&nbsp;
+                <a [routerLink]="['/update',employee.id]" class="btn btn-success">Show</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
