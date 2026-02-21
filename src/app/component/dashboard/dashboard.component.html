@@ -1,0 +1,89 @@
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+  <div class="container">
+    <a class="navbar-brand fw-bold">Employee Admin</a>
+    <div>
+      <a routerLink="/dashboard" class="btn btn-outline-light btn-sm me-2">Dashboard</a>
+      <a routerLink="/login" class="btn btn-danger btn-sm">Logout</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container mt-4">
+
+  <!-- DASHBOARD HEADER -->
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="fw-bold">Dashboard Overview</h2>
+    <a routerLink="/register" class="btn btn-primary">
+      + Add Employee
+    </a>
+  </div>
+
+  <!-- STAT CARDS -->
+  <div class="row mb-4">
+    <div class="col-md-4">
+      <div class="card shadow border-0 text-center p-3 dashboard-card">
+        <h5>Total Employees</h5>
+        <h2 class="fw-bold text-primary">
+          {{employees?.length}}
+        </h2>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card shadow border-0 text-center p-3 dashboard-card">
+        <h5>Active Users</h5>
+        <h2 class="fw-bold text-success">
+          {{employees?.length}}
+        </h2>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card shadow border-0 text-center p-3 dashboard-card">
+        <h5>System Status</h5>
+        <h2 class="fw-bold text-warning">
+          Online
+        </h2>
+      </div>
+    </div>
+  </div>
+
+  <!-- TABLE SECTION -->
+  <div class="table-responsive shadow rounded">
+    <table class="table table-hover align-middle text-center mb-0">
+      <thead class="table-dark">
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Password</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let employee of employees">
+          <td>{{employee.id}}</td>
+          <td>{{employee.name | titlecase}}</td>
+          <td>{{employee.email}}</td>
+          <td>{{employee.password | maskPassword}}</td>
+          <td>
+            <button 
+              (click)="deleteEmployee(employee.id)" 
+              class="btn btn-danger btn-sm me-2">
+              Delete
+            </button>
+
+            <a 
+              [routerLink]="['/update-employee',employee.id]" 
+              class="btn btn-success btn-sm">
+              Show
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>

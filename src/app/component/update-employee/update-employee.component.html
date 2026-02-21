@@ -1,0 +1,48 @@
+<div class="register-container">
+    <div class="register-box">
+        <h2>Update Employee</h2>
+        <form [formGroup]="employee" (ngSubmit)="update()">
+            <div class="form-group">
+                <input 
+                    type="text" 
+                    placeholder="Full Name" 
+                    formControlName="name" 
+                    required
+                    [class.invalid]="employee.get('name')?.invalid && employee.get('name')?.touched"
+                >
+                <span class="error" *ngIf="employee.get('name')?.invalid && employee.get('name')?.touched">
+                    Invalid Name!
+                </span>
+            </div>
+            <div class="form-group">
+                <input 
+                    type="email" 
+                    placeholder="Email" 
+                    formControlName="email" 
+                    required
+                    [class.invalid]="employee.get('email')?.invalid && employee.get('email')?.touched"
+                >
+                <span class="error" *ngIf="employee.get('email')?.invalid && employee.get('email')?.touched">
+                    Invalid Email!
+                </span>
+            </div>
+            <div class="form-group">
+                <input 
+                    type="password" 
+                    placeholder="Password" 
+                    formControlName="password" 
+                    required
+                    [class.invalid]="employee.get('password')?.invalid && employee.get('password')?.touched"
+                >
+                <span class="error" *ngIf="employee.get('password')?.invalid && employee.get('password')?.touched">
+                    Invalid Password!
+                </span>
+            </div>
+            <div class="form-group">
+                <button type="submit" [disabled]="employee.invalid">Update</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<app-footer></app-footer>

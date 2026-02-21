@@ -1,0 +1,52 @@
+<div class="login-container">
+
+  <div class="login-card">
+    <h2>Welcome Back 👋</h2>
+    <p class="subtitle">Please login to your account</p>
+
+    <form #loginForm="ngForm" (ngSubmit)="login()">
+
+      <div class="form-group">
+        <input 
+          type="text" 
+          placeholder="Username" 
+          name="username" 
+          [(ngModel)]="userLogin.username" 
+          required
+          #username="ngModel"
+          [class.invalid]="username.invalid && username.touched"
+        >
+        <small *ngIf="username.invalid && username.touched">
+          Username is required
+        </small>
+      </div>
+
+      <div class="form-group">
+        <input 
+          type="password" 
+          placeholder="Password" 
+          name="password" 
+          [(ngModel)]="userLogin.password" 
+          required
+          minlength="6"
+          #password="ngModel"
+          [class.invalid]="password.invalid && password.touched"
+        >
+        <small *ngIf="password.invalid && password.touched">
+          Minimum 6 characters required
+        </small>
+      </div>
+
+      <button 
+        type="submit" 
+        [disabled]="loginForm.invalid"
+        class="login-btn">
+        Login
+      </button>
+
+    </form>
+  </div>
+
+</div>
+
+<app-footer></app-footer>

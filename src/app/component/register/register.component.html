@@ -1,0 +1,58 @@
+<div class="register-container">
+
+  <div class="register-card">
+    <h2>Create Account ✨</h2>
+    <p class="subtitle">Register a new employee</p>
+
+    <form [formGroup]="employee" (ngSubmit)="register()">
+
+      <div class="form-group">
+        <input 
+          type="text" 
+          placeholder="Full Name" 
+          formControlName="name"
+          [class.invalid]="employee.get('name')?.invalid && employee.get('name')?.touched"
+        >
+        <small *ngIf="employee.get('name')?.invalid && employee.get('name')?.touched">
+          Name is required
+        </small>
+      </div>
+
+      <div class="form-group">
+        <input 
+          type="email" 
+          placeholder="Email Address" 
+          formControlName="email"
+          [class.invalid]="employee.get('email')?.invalid && employee.get('email')?.touched"
+        >
+        <small *ngIf="employee.get('email')?.invalid && employee.get('email')?.touched">
+          Enter a valid email
+        </small>
+      </div>
+
+      <div class="form-group">
+        <input 
+          type="password" 
+          placeholder="Password" 
+          formControlName="password"
+          [class.invalid]="employee.get('password')?.invalid && employee.get('password')?.touched"
+        >
+        <small *ngIf="employee.get('password')?.invalid && employee.get('password')?.touched">
+          Minimum 6 characters required
+        </small>
+      </div>
+
+      <button 
+        type="submit" 
+        [disabled]="employee.invalid"
+        class="register-btn">
+        Register
+      </button>
+
+    </form>
+
+  </div>
+
+</div>
+
+<app-footer></app-footer>

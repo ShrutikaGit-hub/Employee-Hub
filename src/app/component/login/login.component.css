@@ -1,0 +1,97 @@
+/* Full screen gradient background */
+.login-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #2193b0, #6dd5ed);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Glassmorphism Card */
+.login-card {
+  width: 350px;
+  padding: 40px;
+  border-radius: 15px;
+  backdrop-filter: blur(15px);
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  color: white;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.login-card h2 {
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.subtitle {
+  font-size: 14px;
+  margin-bottom: 25px;
+  opacity: 0.8;
+}
+
+/* Inputs */
+.form-group {
+  margin-bottom: 18px;
+  text-align: left;
+}
+
+.login-card input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  transition: 0.3s;
+}
+
+.login-card input:focus {
+  box-shadow: 0 0 0 2px #ffffff;
+}
+
+/* Validation */
+.invalid {
+  border: 2px solid #ff4d4d !important;
+}
+
+small {
+  color: #ffeaea;
+  font-size: 12px;
+}
+
+/* Button */
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background-color: #ffffff;
+  color: #2193b0;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.login-btn:hover {
+  background-color: #f0f0f0;
+  transform: translateY(-2px);
+}
+
+.login-btn:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
